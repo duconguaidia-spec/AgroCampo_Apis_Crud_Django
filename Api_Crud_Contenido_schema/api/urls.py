@@ -1,31 +1,20 @@
-
-from django.urls import include
-from django.urls import path
-
-
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from .views import (
     categoriaViewSet,
-    respuestaforoViewSet,
-    temaforoViewSet,
-    videoeducativoViewSet
+    respuestaForoViewSet,
+    temaForoViewSet,
+    videoEducativoViewSet
 )
-
-from django.contrib import admin
-from rest_framework import permissions
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
 
 router = DefaultRouter()
 
-# Registro de endpoints del api
 router.register(r'categorias', categoriaViewSet)
-router.register(r'respuestas', respuestaforoViewSet)
-router.register(r'temas', temaforoViewSet)
-router.register(r'videos', videoeducativoViewSet)
+router.register(r'respuestas', respuestaForoViewSet)
+router.register(r'temas', temaForoViewSet)
+router.register(r'videos', videoEducativoViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
 ]
-from django.contrib import admin

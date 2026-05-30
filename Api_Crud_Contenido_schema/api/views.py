@@ -1,34 +1,35 @@
-from django.shortcuts import render
-
 from rest_framework import viewsets
 
-from .models import(
-    Categoria,
-    respuestaforo,
-    temaforo,
-    videoeducativo
+from .models import (
+    categoria,
+    respuestaForo,
+    temaForo,
+    videoEducativo
 )
 
-from .serializers import(
+from .serializers import (
     CategoriaSerializer,
-    respuestaforoSerializer,
-    temaforoSerializer,
-    videoeducativoSerializer
-    
+    respuestaForoSerializer,
+    temaForoSerializer,
+    videoEducativoSerializer
 )
+
 
 class categoriaViewSet(viewsets.ModelViewSet):
-    queryset = Categoria.objects.all()
+    queryset = categoria.objects.all()
     serializer_class = CategoriaSerializer
 
-class respuestaforoViewSet(viewsets.ModelViewSet):
-    queryset = respuestaforo.objects.all()
-    serializer_class = respuestaforoSerializer
 
-class temaforoViewSet(viewsets.ModelViewSet):
-    queryset = temaforo.objects.all()
-    serializer_class = temaforoSerializer
+class respuestaForoViewSet(viewsets.ModelViewSet):
+    queryset = respuestaForo.objects.all()
+    serializer_class = respuestaForoSerializer
 
-class videoeducativoViewSet(viewsets.ModelViewSet):
-    queryset = videoeducativo.objects.all()
-    serializer_class = videoeducativoSerializer
+
+class temaForoViewSet(viewsets.ModelViewSet):
+    queryset = temaForo.objects.all()
+    serializer_class = temaForoSerializer
+
+
+class videoEducativoViewSet(viewsets.ModelViewSet):
+    queryset = videoEducativo.objects.all()
+    serializer_class = videoEducativoSerializer

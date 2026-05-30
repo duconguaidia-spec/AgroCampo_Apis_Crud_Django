@@ -1,28 +1,32 @@
 from rest_framework import serializers
 
-from .models import(
-Categoria,
-respuestaforo,
-temaforo,
-videoeducativo
+from .models import (
+    categoria,
+    respuestaForo,
+    temaForo,
+    videoEducativo
 )
+
 
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Categoria
+        model = categoria
         fields = '__all__'
 
-class respuestaforoSerializer(serializers.ModelSerializer):
+
+class respuestaForoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = respuestaforo
+        model = respuestaForo
         fields = '__all__'
 
-class temaforoSerializer(serializers.ModelSerializer):
+
+class temaForoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = temaforo
+        model = temaForo
         fields = '__all__'
 
-class videoeducativoSerializer(serializers.ModelSerializer):
+
+class videoEducativoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = videoeducativo
+        model = videoEducativo
         fields = '__all__'
