@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Noticia(models.Model):
+class Noticias(models.Model):
     id_noticia = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=150)
     tipo = models.CharField(max_length=20)
