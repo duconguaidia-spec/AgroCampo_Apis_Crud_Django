@@ -17,6 +17,17 @@ class SubastaSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class TrPreciosubastaganadoSerializer(serializers.ModelSerializer):
+
+    subasta_detalle = SubastaSerializer(
+        source='id_subasta',
+        read_only=True
+    )
+
+    categoria_detalle = CategoriaGanadoSerializer(
+        source='id_categoria_ganado',
+        read_only=True
+    )
+
     class Meta:
         model = TrPreciosubastaganado
         fields = '__all__'
