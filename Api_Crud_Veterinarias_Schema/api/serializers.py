@@ -35,8 +35,16 @@ class VeterinariaSerializer(serializers.ModelSerializer):
 
 # Serializador para VeterinariaEspecialidad
 class VeterinariaEspecialidadSerializer(serializers.ModelSerializer):
-    id_veterinaria = serializers.StringRelatedField()
-    id_especialidad = serializers.StringRelatedField()
+    # Para escritura (POST/PUT)
+    id_veterinaria_id = serializers.PrimaryKeyRelatedField(
+        queryset=Veterinaria.objects.all(), source='id_veterinaria', write_only=True
+    )
+    id_especialidad_id = serializers.PrimaryKeyRelatedField(
+        queryset=Especialidad.objects.all(), source='id_especialidad', write_only=True
+    )
+    # Para lectura (GET)
+    id_veterinaria = VeterinariaSerializer(read_only=True)
+    id_especialidad = EspecialidadSerializer(read_only=True)
 
     class Meta:
         model = VeterinariaEspecialidad
@@ -45,8 +53,16 @@ class VeterinariaEspecialidadSerializer(serializers.ModelSerializer):
 
 # Serializador para VeterinariaServicio
 class VeterinariaServicioSerializer(serializers.ModelSerializer):
-    id_veterinaria = serializers.StringRelatedField()
-    id_servicio_general = serializers.StringRelatedField()
+    # Para escritura (POST/PUT)
+    id_veterinaria_id = serializers.PrimaryKeyRelatedField(
+        queryset=Veterinaria.objects.all(), source='id_veterinaria', write_only=True
+    )
+    id_servicio_general_id = serializers.PrimaryKeyRelatedField(
+        queryset=ServicioGeneral.objects.all(), source='id_servicio_general', write_only=True
+    )
+    # Para lectura (GET)
+    id_veterinaria = VeterinariaSerializer(read_only=True)
+    id_servicio_general = ServicioGeneralSerializer(read_only=True)
 
     class Meta:
         model = VeterinariaServicio
@@ -55,7 +71,12 @@ class VeterinariaServicioSerializer(serializers.ModelSerializer):
 
 # Serializador para ServicioVeterinaria
 class ServicioVeterinariaSerializer(serializers.ModelSerializer):
-    id_veterinaria = serializers.StringRelatedField()
+    # Para escritura (POST/PUT)
+    id_veterinaria_id = serializers.PrimaryKeyRelatedField(
+        queryset=Veterinaria.objects.all(), source='id_veterinaria', write_only=True
+    )
+    # Para lectura (GET)
+    id_veterinaria = VeterinariaSerializer(read_only=True)
 
     class Meta:
         model = ServicioVeterinaria
@@ -64,7 +85,12 @@ class ServicioVeterinariaSerializer(serializers.ModelSerializer):
 
 # Serializador para ProductoVeterinaria
 class ProductoVeterinariaSerializer(serializers.ModelSerializer):
-    id_veterinaria = serializers.StringRelatedField()
+    # Para escritura (POST/PUT)
+    id_veterinaria_id = serializers.PrimaryKeyRelatedField(
+        queryset=Veterinaria.objects.all(), source='id_veterinaria', write_only=True
+    )
+    # Para lectura (GET)
+    id_veterinaria = VeterinariaSerializer(read_only=True)
 
     class Meta:
         model = ProductoVeterinaria
@@ -73,7 +99,12 @@ class ProductoVeterinariaSerializer(serializers.ModelSerializer):
 
 # Serializador para ResenaVeterinaria
 class ResenaVeterinariaSerializer(serializers.ModelSerializer):
-    id_veterinaria = serializers.StringRelatedField()
+    # Para escritura (POST/PUT)
+    id_veterinaria_id = serializers.PrimaryKeyRelatedField(
+        queryset=Veterinaria.objects.all(), source='id_veterinaria', write_only=True
+    )
+    # Para lectura (GET)
+    id_veterinaria = VeterinariaSerializer(read_only=True)
 
     class Meta:
         model = ResenaVeterinaria
