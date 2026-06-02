@@ -89,6 +89,7 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
+            'options': {f'-c search_path={config("DB_SCHEMA")}'}  # Especifica el esquema a usar
     }
 }
 

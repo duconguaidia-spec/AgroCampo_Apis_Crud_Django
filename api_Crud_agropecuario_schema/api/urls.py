@@ -11,9 +11,9 @@ from drf_yasg import openapi
 
 router = DefaultRouter()
 
-router.register(r'categorias-ganado', CategoriaGanadoViewSet)
-router.register(r'subastas', SubastaViewSet)
-router.register(r'tr-preciosubastaganado', TrPreciosubastaganadoViewSet)
+router.register(r'categorias_ganado', CategoriaGanadoViewSet)
+router.register(r'subasta', SubastaViewSet)
+router.register(r'tr_preciosubastaganado', TrPreciosubastaganadoViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
